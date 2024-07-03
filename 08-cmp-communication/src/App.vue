@@ -8,11 +8,13 @@
       name="Sopheak Saing"
       phone-number="012207047"
       email-address="saingsopheak01@gmail.com"
+      is-favorite="1"
       ></friend-contact>
       <friend-contact
       name="Mony"
       phone-number="06999999"
       email-address="sovannmony@gmail.com"
+      is-favorite="0"
       ></friend-contact>
     </ul>
   </section>
