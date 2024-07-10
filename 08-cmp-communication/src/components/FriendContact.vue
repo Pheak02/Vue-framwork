@@ -1,6 +1,6 @@
 <template>
   <li>
-    <h2>{{ name }} {{ friendIsFav === "1" ? "(Favorite)" : "" }}</h2>
+    <h2>{{ name }} {{ friendIsFav ? "(Favorite)" : "" }}</h2>
     <button @click="toggleFavorite">Toggle Favorite</button>
     <button @click="toggleDetails">Details</button>
     <ul v-if="detailsAreVisible">
