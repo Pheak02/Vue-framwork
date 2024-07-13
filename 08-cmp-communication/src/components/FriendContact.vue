@@ -13,6 +13,7 @@
         {{ emailAddress }}
       </li>
     </ul>
+    <button @click="$emit('delete', id)">Delete</button> <!-- id get from pop -->
   </li>
 </template>
 
@@ -47,7 +48,7 @@ export default {
     },
   },
 
-  emits: ["toggle-favorite"], //basic form
+  emits: ["toggle-favorite", "delete"], //basic form
   // emits: {
   //   "toggle-favorite": function (id) {
   //     if (id) {
