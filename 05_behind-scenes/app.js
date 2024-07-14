@@ -1,8 +1,8 @@
 const app = Vue.createApp({
   data() {
     return {
-      currentUserInput: '',
-      message: 'Vue is great!',
+      currentUserInput: "",
+      message: "Vue is great!",
     };
   },
   methods: {
@@ -10,9 +10,38 @@ const app = Vue.createApp({
       this.currentUserInput = event.target.value;
     },
     setText() {
-      this.message = this.currentUserInput;
+      // console.dir('this.$ref.userText');
+      this.message = this.$refs.userText.value;
     },
+  },
+  beforeCreate() {
+    console.log("beforeCreate()");
+  },
+  created() {
+    console.log("created()");
+  },
+  beforeMount() {
+    console.log("beforeMount()");
+  },
+  mounted() {
+    console.log("mounted()");
+  },
+  beforeUpdate() {
+    console.log("beforeUpdatee()");
+  },
+  update() {
+    console.log("update()");
+  },
+  beforeMount() {
+    console.log("beforeUnmount()");
+  },
+  unmounted() {
+    console.log("unmount()");
   },
 });
 
-app.mount('#app');
+app.mount("#app");
+
+setTimeout(function () {
+  app.unmount();
+}, 3000);
