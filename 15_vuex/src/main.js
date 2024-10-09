@@ -18,11 +18,21 @@ const store = createStore({
             state.counter = state.counter + payload.value;
         }  
     },
+    actions: { //to avoid async - consider good practice
+        increment(context) { //take context obj
+            setTimeout(function() {
+                context.commit('increment');
+            }, 2000)
+        },
+        increase(context, payload) {
+            context.commit('increase', payload)
+        }
+    },
     getters: {
-        finalCounter(_, state) { // _ means i have to take it in order to work with the 2nd arg but i don't wanna work with it
+        finalCounter(state) { // _ means i have to take it in order to work with the 2nd arg but i don't wanna work with it
             return state.counter * 2;
         },
-        normalizedCounter(state, getters){
+        normalizedCounter(_, getters){
             const finalCounter = getters.finalCounter
             if (finalCounter < 0){
                 return 0;
