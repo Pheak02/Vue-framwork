@@ -7,7 +7,8 @@ import App from './App.vue';
 const store = createStore({
     state(){
         return {
-            counter: 0
+            counter: 0,
+            isLoggedIn: false
         };
     },
     mutations: {
@@ -16,6 +17,9 @@ const store = createStore({
         },
         increase(state, payload){
             state.counter = state.counter + payload.value;
+        },
+        setAuth(state, payload){
+            state.isLoggedIn = payload.isAuth;
         }  
     },
     actions: { //to avoid async - consider good practice
@@ -27,7 +31,14 @@ const store = createStore({
         increase(context, payload) {
             console.log(context)
             context.commit('increase', payload)
+        },
+        login(context){
+            context.commit('setAuth', {isAuth: true})
+        },
+        logout(context){
+            context.commit('setAuth', {isAuth: false})
         }
+
     },
     getters: {
         finalCounter(state) { // _ means i have to take it in order to work with the 2nd arg but i don't wanna work with it
@@ -42,6 +53,9 @@ const store = createStore({
                 return 100;
             }
             return finalCounter;
+        },
+        isUserAuth(state){
+            return state.isLoggedIn;
         }
     }
 })
