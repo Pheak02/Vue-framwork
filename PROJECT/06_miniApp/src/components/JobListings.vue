@@ -1,6 +1,7 @@
 <script setup>
   import JobListing from '@/components/JobListing.vue'
-  import { ref, defineProps, onMounted } from 'vue';
+  import { defineProps, onMounted, reactive } from 'vue';
+  import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
   import axios from 'axios';
 
   defineProps({
@@ -10,14 +11,19 @@
       default: false
     }
   })
-  const jobs = ref([]);
+  const state = reactive({
+    jobs: [],
+    isLoading: true
+  })
 
   onMounted(async () => {
     try {
       const res = await axios.get('https://localhost:8081/jobs');
-      jobs.value = res.data;
+      state.jobs = res.data;
     } catch (e) {
-      console.e('err fetching jobs');
+      console.log('err fetching jobs', e);
+    } finally {
+      state.isLoading = false;
     }
   })
 </script>
@@ -27,8 +33,11 @@
       <h2 class="text-3xl font-bold text-green-500 mb-6 text-center">
         Brows Jobs
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <JobListing v-for="job in jobs.slice(0, limit || jobs.length)"
+      <div v-if="state.isLoading" class="text-center text-gray-500">
+        <PulseLoader color="#4ade80" />
+      </div>
+      <div v-else class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <JobListing v-for="job in state.jobs.slice(0, limit || state.jobs.length)"
           :key="job.id"
           :job="job"/>
       </div>
