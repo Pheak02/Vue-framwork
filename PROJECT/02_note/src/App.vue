@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from 'vue';
 const showModal = ref(false);
-const newNote = ref("hiii");
+const errMsg = ref(""); //value with "" is falsy
+const newNote = ref("");
 const notes = ref([])
 
 function randomColor() {
@@ -9,6 +10,9 @@ function randomColor() {
 }
 
 const addNote = () => {
+  if (newNote.value.length <= 10) {
+    return errMsg.value = "Note needs to be at least 10 characters";
+  }
   notes.value.push({
     id: Math.floor(Math.random() * 1000),
     text: newNote.value,
@@ -17,6 +21,7 @@ const addNote = () => {
   })
   showModal.value = false;
   newNote.value = "";
+  errMsg.value = "";
 }
 
 </script>
@@ -24,7 +29,8 @@ const addNote = () => {
   <main>
     <div v-if="showModal" class="overlay">
       <div class="modal">
-        <textarea v-model="newNote" name="note" id="note" cols="30" rows="10"/>
+        <textarea v-model.trim="newNote" name="note" id="note" cols="30" rows="10"/>
+        <p v-if="errMsg">{{ errMsg }}</p>
         <div class="footer">
           <button @click="addNote()">Add note</button>
           <button class="color: red;" @click="showModal = false">Close</button>
@@ -38,9 +44,12 @@ const addNote = () => {
         <button @click="showModal = true">+</button>
       </header>
       <div class="cards-container">
-        <div class="card">
-          <p class="main-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis doloremque earum fuga iste? Culpa dignissimos ea</p>
-          <p class="date"></p>
+        <div v-for="note in notes"
+           :key="note.id"
+           class="card"
+           :style="{backgroundColor: note.backgroundColor}">
+          <p class="main-text">{{ note.text}}</p>
+          <p class="date">{{note.date}}</p>
         </div>
       </div>
     </div>
@@ -117,5 +126,11 @@ header button {
 }
 .footer {
   margin: 25px 0 25px 0;
+}
+.modal p {
+  color: red;
+}
+.main-text {
+  text-wrap: pretty;
 }
 </style>
