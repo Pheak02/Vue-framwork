@@ -8,3 +8,7 @@ COMMIT MESSAGE PREFIX:
 PACKAGE DEPENDENCIES:
 * under package.json file: 
   * "scripts": {} is where we do run the command
+
+ROUTER-LINK: comes in to replace <a>
+* Help not to lose the state when navigate diff route
+* Have a built-in prop called: 'active-class'
