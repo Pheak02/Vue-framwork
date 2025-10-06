@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "Toyota Corolla",
+    "price": 18000,
+    "year": 2019,
+    "contact": {
+      "dealer": "Laith",
+      "number": "111-111-111"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Honda Civic",
+    "price": 20000,
+    "year": 2020,
+    "contact": {
+      "dealer": "Ohio",
+      "number": "131-111-121"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Ford Mustang",
+    "price": 35000,
+    "year": 2021,
+    "contact": {
+      "dealer": "Wasabi",
+      "number": "131-555-121"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Tesla Model 3",
+    "price": 42000,
+    "year": 2022,
+    "contact": {
+      "dealer": "Haigy",
+      "number": "131-777-121"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Chevrolet Malibu",
+    "price": 25000,
+    "year": 2018,
+    "contact": {
+      "dealer": "Ohio",
+      "number": "131-111-121"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Hyundai Elantra",
+    "price": 17000,
+    "year": 2020,
+    "contact": {
+      "dealer": "Ohio",
+      "number": "131-111-121"
+    }
+  },
+  {
+    "id": 7,
+    "name": "BMW 3 Series",
+    "price": 46000,
+    "year": 2023,
+    "contact": {
+      "dealer": "Ohio",
+      "number": "131-111-121"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Audi A4",
+    "price": 44000,
+    "year": 2021,
+    "contact": {
+      "dealer": "Ohio",
+      "number": "131-111-121"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Kia Forte",
+    "price": 16000,
+    "year": 2019,
+    "contact": {
+      "dealer": "Ohio",
+      "number": "131-111-121"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Mercedes-Benz C-Class",
+    "price": 52000,
+    "year": 2024,
+    "contact": {
+      "dealer": "Ohio",
+      "number": "131-111-121"
+    }
+  }
+]

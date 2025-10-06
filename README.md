@@ -12,3 +12,10 @@ PACKAGE DEPENDENCIES:
 ROUTER-LINK: comes in to replace <a>
 * Help not to lose the state when navigate diff route
 * Have a built-in prop called: 'active-class'
+* the ':' inside the path refers to dynamic thing, 
+  * e.g, [{
+    path: '/cars/:id',
+    name: 'car',
+    component: CarView,
+    },]
+* children route, can nested inside any cmp it wants to have child
